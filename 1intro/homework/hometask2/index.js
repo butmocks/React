@@ -25,7 +25,7 @@ const element = React.createElement(
     React.createElement(
       'div',
       { className: 'greeting__title' },
-      'Hello world!'
+      'Hello, world!'
     ),
     React.createElement(
       'div',
