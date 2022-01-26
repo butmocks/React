@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server -d --devtool eval-source-map --open",
+    "start": "webpack-dev-server -d --devtool eval-source-maps --open",
     "build": "webpack -p"
   },
   "keywords": [],
@@ -29,6 +29,7 @@
   "dependencies": {
     "core-js": "^3.5.0",
     "react": "^16.12.0",
+    "moment": "^2.29.1",
     "react-dom": "^16.12.0"
   },
   "description": ""
