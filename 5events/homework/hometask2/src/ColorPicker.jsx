@@ -1,46 +1,45 @@
 import React, { Component } from 'react';
-import './index.scss';
+
+const CORAL = 'Coral';
+const AQUA = 'Aqua';
+const BISQUE = 'Bisque';
 
 class ColorPicker extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
-      currentColor: 'Red',
+      colorText: '',
     };
   }
-
-  onHover(color) {
+  showText = value => {
     this.setState({
-      currentColor: color,
+      colorText: value,
     });
-  }
-
-  offHover() {
+  };
+  reset = () => {
     this.setState({
-      currentColor: null,
+      colorText: '',
     });
-  }
-
+  };
   render() {
     return (
       <div>
-        <div className="picker__title">{this.state.currentColor}</div>
+        <div className="picker__title">{this.state.colorText}</div>
         <div>
           <button
             className="picker__button picker__button_coral"
-            onMouseEnter={this.onHover.bind(this, 'Coral')}
-            onMouseLeave={this.offHover.bind(this)}
+            onMouseOver={() => this.showText(CORAL)}
+            onMouseOut={this.reset}
           ></button>
           <button
             className="picker__button picker__button_aqua"
-            onMouseEnter={this.onHover.bind(this, 'Aqua')}
-            onMouseLeave={this.offHover.bind(this)}
+            onMouseOver={() => this.showText(AQUA)}
+            onMouseOut={this.reset}
           ></button>
           <button
             className="picker__button picker__button_bisque"
-            onMouseEnter={this.onHover.bind(this, 'Bisque')}
-            onMouseLeave={this.offHover.bind(this)}
+            onMouseOver={() => this.showText(BISQUE)}
+            onMouseOut={this.reset}
           ></button>
         </div>
       </div>
