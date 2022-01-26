@@ -1,12 +1,13 @@
 import React from 'react';
-import Counter from './Clock';
+import Clock from './Clock.jsx';
 
 const App = () => {
+  // return <Clock />;
   return (
     <>
-      <Counter start={17} interval={1000} />
-      <Counter start={-40} interval={2000} />
-      <Counter start={100} interval={5000} />;
+      <Clock location="London" offset="0" />
+      <Clock location="Kyiv" offset="2" />
+      <Clock location="New York" offset="-5" />
     </>
   );
 };
