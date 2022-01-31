@@ -14,13 +14,13 @@ class Auth extends Component {
 
   handleLogin = () => {
     this.setState({
-      isLoggedIn: true,
+      isLoggedIn: false,
     });
   };
 
   handleLogout = () => {
     this.setState({
-      isLoggedIn: false,
+      isLoggedIn: true,
     });
   };
 
