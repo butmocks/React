@@ -13,6 +13,7 @@ class Auth extends Component {
   }
 
   handleLogin = () => {
+    
     this.setState({
       isLoggedIn: false,
     });
