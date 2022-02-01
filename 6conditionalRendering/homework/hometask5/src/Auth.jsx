@@ -1,50 +1,46 @@
-import React from 'react';
-import Spinner from './Spinner';
-import { Component } from 'react';
-import Logout from './Logout';
-import Login from './Login';
+import React, { Component } from 'react';
+import Spinner from './Spinner.jsx';
+import Login from './Login.jsx';
+import Logout from './Logout.jsx';
 
 class Auth extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
-      isLoadding: false,
-      isLoggedIn: false,
+      isLoggedIn: true,
+      processing: true,
     };
   }
 
-  handelLogin = () => {
+  Login = () => {
     this.setState({
-      isLoadding: true,
+      processing: false,
     });
     setTimeout(() => {
       this.setState({
-        isLoadding: false,
-        isLoggedIn: true,
+        processing: false,
+        isLoggedIn: false,
       });
     }, 2000);
-    // await login();
-    // this.setState({
-    //   isLoadding: false,
-    //   isLoggedIn: true
-    // })
   };
 
-  handelLoguot = () => {
-    this.setState({
-      isLoggedIn: false,
-    });
+  onLogout = () => {
+    this.setState({ processing: true, isLoggedIn: true });
   };
 
   render() {
-    const { isLoggedIn, isLoadding } = this.state;
-    if (isLoadding) {
-      return <Spinner size={100} />;
-    }
-    if (isLoggedIn) {
-      return <Logout onLogout={this.handelLoguot} />;
-    }
-    return <Login onLogin={this.handelLogin} />;
+    return (
+      <div className="panel">
+        {this.state.processing && this.state.processing ? (
+          <Login onLogin={this.onLogin} />
+        ) : this.state.isLoggedIn && !this.state.processing ? (
+          <Spinner size={50} />
+        ) : (
+          <Logout onLogout={this.onLogout} />
+        )}
+      </div>
+    );
   }
 }
+
+export default Auth;
