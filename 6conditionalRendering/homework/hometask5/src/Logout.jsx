@@ -1,5 +1,5 @@
 import React from 'react';
-import Spinner from './Spinner.jsx';
+import Spinner from './Spinner';
 
 const Logout = props => {
   return (
