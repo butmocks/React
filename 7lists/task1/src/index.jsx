@@ -7,8 +7,8 @@ const rootElement = document.querySelector('#root');
 
 const numbers = [1, 2, 3, 4, 5];
 
-const numberElems = numbers.map(num => <li>{num}</li>);
+// const numberElems = numbers.map(num => <li>{num}</li>);
 
-const element = <ul>{numberElems}</ul>;
+// const element = <ul>{numberElems}</ul>;
 
-ReactDOM.render(element, rootElement);
+ReactDOM.render(<NumberList numbers={numbers} />, rootElement);
