@@ -1,7 +1,7 @@
 import React from 'react';
 
-const App = () => {
+const NumberList = () => {
   return <div>Hello, React!</div>;
 };
 
-export default App;
+export default NumberList;
