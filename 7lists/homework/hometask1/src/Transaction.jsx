@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 
 const Transaction = ({ from, to, amount, rate, time }) => {
   const date = moment(time).format('DD MMM');
