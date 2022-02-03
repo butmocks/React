@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
-<<<<<<< HEAD
 import TransactionsList from './TransactionsList';
 
 const rootElement = document.querySelector('#root');
@@ -34,16 +33,3 @@ const transactions = [
 ];
 
 ReactDOM.render(<TransactionsList transactions={transactions} />, rootElement);
-=======
-import NumbersList from './NumbersList';
-
-const rootElement = document.querySelector('#root');
-
-const numbers = [1, 2, 3, 4, 5];
-
-// const numberElems = numbers.map(num => <li>{num}</li>);
-
-// const element = <ul>{numberElems}</ul>;
-
-ReactDOM.render(<NumbersList numbers={numbers} />, rootElement);
->>>>>>> 5cf77877e4b76c4185e690c1a3442c8383590f2f
