@@ -6,7 +6,6 @@ const Transaction = ({ from, to, amount, rate, time }) => {
   const times = moment(time).format('HH:mm');
 
   const numb = new Intl.NumberFormat('en-GB').format(amount);
-  console.log(numb);
 
   return (
     <li className="transaction">

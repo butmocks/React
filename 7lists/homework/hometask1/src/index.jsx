@@ -4,7 +4,6 @@ import './index.scss';
 import TransactionsList from './TransactionsList';
 
 const rootElement = document.querySelector('#root');
-
 const transactions = [
   {
     id: 'id-0',
@@ -31,5 +30,6 @@ const transactions = [
     time: '2019-01-10T17:01:35.447Z',
   },
 ];
+
 
 ReactDOM.render(<TransactionsList transactions={transactions} />, rootElement);
