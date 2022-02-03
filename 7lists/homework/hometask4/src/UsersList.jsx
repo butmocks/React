@@ -3,12 +3,32 @@ import User from './User';
 import Pagination from './Pagination';
 
 class UsersList extends Component {
+  state = {
+    currentPage: 1,
+  };
+  goPrev = () => {
+    this.setState({ currentPage: this.state.currentPage - 1 });
+  };
+  goNext = () => {
+    this.setState({ currentPage: this.state.currentPage + 1 });
+  };
   render() {
+    const { currentPage } = this.state;
+    const itemsPerPage = 3;
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = currentPage * itemsPerPage;
+    const usersList = this.props.users.slice(startIndex, endIndex);
     return (
       <div>
-        <Pagination />
+        <Pagination
+          currentPage={this.state.currentPage}
+          goPrev={this.goPrev}
+          goNext={this.goNext}
+          totalItems={this.props.users.length}
+          itemsPerPage={itemsPerPage}
+        />
         <ul className="users">
-          {this.props.users.map(user => (
+          {usersList.map(user => (
             <User key={user.id} {...user} />
           ))}
         </ul>
