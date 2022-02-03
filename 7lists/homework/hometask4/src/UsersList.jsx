@@ -1,7 +1,6 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import User from './User';
 import Pagination from './Pagination';
-
 
 class UsersList extends Component {
   render() {
@@ -9,13 +8,13 @@ class UsersList extends Component {
       <div>
         <Pagination />
         <ul className="users">
-          {this.props.users.map((user) => (
+          {this.props.users.map(user => (
             <User key={user.id} {...user} />
           ))}
         </ul>
       </div>
     );
   }
-};
+}
 
 export default UsersList;
