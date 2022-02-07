@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-class ConnectionStatus extends React.Component {
+class ConnectionStatus extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       networkStatus: window.navigator.onLine,
     };
@@ -25,11 +24,6 @@ class ConnectionStatus extends React.Component {
 
   render() {
     const { networkStatus } = this.state;
-    //   if (networkStatus) {
-    //     return <div className="status">online</div>;
-    //   }
-    //   return <div className="status status_offline">offline</div>;
-    // }
     return networkStatus ? (
       <div className="status">online</div>
     ) : (
