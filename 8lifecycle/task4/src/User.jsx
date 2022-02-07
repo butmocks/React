@@ -25,7 +25,11 @@ class User extends Component {
     const { avatar_url, name, location } = user;
     return (
       <div className="user">
-        <img alt="User Avatar" src={avatar_url} className="user__avatar" />
+        <img
+        alt="User Avatar"
+        src={avatar_url}
+        className="user__avatar"
+        />
         <div className="user__info">
           <span className="user__name">{name}</span>
 
