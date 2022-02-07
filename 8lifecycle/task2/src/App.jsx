@@ -8,7 +8,7 @@ class App extends Component {
       visible: true,
     };
 
-    this.toggle = this.toggle.bind();
+    this.toggle = this.toggle.bind(this);
   }
 
   toggle() {
@@ -18,10 +18,12 @@ class App extends Component {
   }
 
   render() {
-    <div>
-      <button onClick={this.toggle}>Toggle</button>
-      <div>{this.state.visible && <Clock />}</div>
-    </div>;
+    return (
+      <div>
+        <button onClick={this.toggle}>Toggle</button>
+        <div>{this.state.visible && <Clock />}</div>
+      </div>
+    );
   }
 }
 
