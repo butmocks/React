@@ -2,14 +2,20 @@ import React, { Component } from 'react';
 import Clock from './Clock.jsx';
 
 class App extends Component {
-  state = {
-    visible: true,
-  };
-  toggle = () => {
+  constructor(props) {
+    super(props);
+    this.state = {
+      visible: true,
+    };
+
+    this.toggle = this.toggle.bind();
+  }
+
+  toggle() {
     this.setState({
       visible: !this.state.visible,
     });
-  };
+  }
 
   render() {
     <div>
