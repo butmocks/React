@@ -1,12 +1,38 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const Mailbox = ({ unreadMessages }) => {
-  return (
-    <div className="mailbox">
-      <span className="mailbox__text">Messages</span>
-      {unreadMessages.length > 0 && <span className="mailbox__count">{unreadMessages.length}</span>}
-    </div>
-  );
-};
+class Dimensions extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      width: null,
+      height: null,
+    };
+    document.title = `${innerWidth} x ${innerHeight}`;
+  }
+  componentDidMount() {
+    window.addEventListener('resize', this.onResize);
 
-export default Mailbox;
+    const { innerWidth, innerHeight } = window;
+    this.setDimensions(innerWidth, innerHeight);
+  }
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.onResize);
+  }
+  onResize = e => {
+    const { innerWidth, innerHeight } = e.target;
+
+    this.setDimensions(innerWidth, innerHeight);
+  };
+  setDimensions = (width, height) => {
+    this.setState({
+      width,
+      height,
+    });
+    document.title = `${innerWidth} x ${innerHeight}`;
+  };
+  render() {
+    return <div className="dimensions">{`${this.state.width}px - ${this.state.height}px`}</div>;
+  }
+}
+
+export default Dimensions;
