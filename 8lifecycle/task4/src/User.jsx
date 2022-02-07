@@ -17,12 +17,15 @@ class User extends Component {
         });
       });
   };
+
   render() {
     const { user } = this.state;
     if (!user) {
       return null;
     }
-    const { avatar_url, name, location } = user;
+
+
+    const { avatar_url, location, name } = user;
     return (
       <div className="user">
         <img

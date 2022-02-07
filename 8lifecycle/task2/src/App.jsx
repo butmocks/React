@@ -18,7 +18,7 @@ class App extends Component {
   }
 
   render() {
-    return (
+    return(
       <div>
         <button onClick={this.toggle}>Toggle</button>
         <div>{this.state.visible && <Clock />}</div>

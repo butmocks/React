@@ -4,17 +4,17 @@ import Life from './Life.jsx';
 class Demo extends Component {
   state = {
     number: Math.round(Math.random() * 100),
-    visible: true,
+    // visible: true,
   };
   show = () => {
     this.setState({
-      visible: false,
+      visible: true,
     });
   };
 
   hide = () => {
     this.setState({
-      visible: true,
+      visible: false,
     });
   };
 
@@ -29,15 +29,15 @@ class Demo extends Component {
       <div>
         <div>
           <button className="btn" onClick={this.show}>
-            show
+            Show
           </button>
 
           <button className="btn" onClick={this.hide}>
-            hide
+            Hide
           </button>
 
           <button className="btn" onClick={this.update}>
-            update
+            Update
           </button>
         </div>
         {this.state.visible || <Life number={this.state.number} />}
