@@ -1,33 +1,37 @@
 import React, { Component } from 'react';
 
 class ConnectionStatus extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      networkStatus: window.navigator.onLine,
-    };
-  }
+  state = {
+    status: 'online',
+  };
 
   componentDidMount() {
-    window.addEventListener('offline', this.handleNetworkChange);
-    window.addEventListener('online', this.handleNetworkChange);
+    window.addEventListener('online', this.onlineEvent);
+    window.addEventListener('offline', this.offlineEvent);
   }
 
   componentWillUnmount() {
-    window.removeEventListener('offline', this.handleNetworkChange);
-    window.removeEventListener('online', this.handleNetworkChange);
+    window.removeEventListener('online', this.onlineEvent);
+    window.removeEventListener('offline', this.offlineEvent);
   }
 
-  handleNetworkChange = event => {
-    this.setState({ networkStatus: event.target.navigator.onLine });
+  onlineEvent = () => {
+    this.setState({
+      status: 'online',
+    });
+  };
+
+  offlineEvent = () => {
+    this.setState({
+      status: 'offline',
+    });
   };
 
   render() {
-    const { networkStatus } = this.state;
-    return networkStatus ? (
-      <div className="status">online</div>
+    return this.state.status === 'online' ? (
+      <div className="status">{this.state.status}</div>
     ) : (
-      <div className="status status_offline">offline</div>
+      <div className="status status_offline">{this.state.status}</div>
     );
   }
 }
