@@ -8,9 +8,10 @@ class Search extends Component {
   };
 
   search = event => {
-    event.preventDefault()
-    console.log(this.state.value)
-  }
+    event.preventDefault();
+    // console.log(this.state.value)
+    alert(`Search text: ${this.state.value}`);
+  };
 
   render() {
     return (
@@ -21,7 +22,9 @@ class Search extends Component {
           value={this.state.value}
           className="search__input"
         />
-        <button className="search__button" type='submit'>Search</button>
+        <button className="search__button" type="submit">
+          Search
+        </button>
       </form>
     );
   }
