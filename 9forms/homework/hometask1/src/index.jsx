@@ -5,4 +5,47 @@ import UsersList from './UsersList.jsx';
 
 const rootElement = document.querySelector('#root');
 
-ReactDOM.render(<UsersList />, rootElement);
+const users = [
+  {
+    id: 'id-0',
+    age: 21,
+    name: 'Bob',
+  },
+  {
+    id: 'id-1',
+    age: 17,
+    name: 'Tom',
+  },
+  {
+    id: 'id-2',
+    age: 18,
+    name: 'Tad',
+  },
+  {
+    id: 'id-3',
+    age: 45,
+    name: 'Sam',
+  },
+  {
+    id: 'id-13',
+    age: 21,
+    name: 'Bob',
+  },
+  {
+    id: 'id-666',
+    age: 17,
+    name: 'Tom',
+  },
+  {
+    id: 'id-100',
+    age: 18,
+    name: 'Tad',
+  },
+  {
+    id: 'id-200',
+    age: 45,
+    name: 'Sam',
+  },
+];
+
+ReactDOM.render(<UsersList users={users} />, rootElement);
