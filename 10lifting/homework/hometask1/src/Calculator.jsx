@@ -2,14 +2,15 @@ import React, { Component } from 'react';
 import TemperatureInput from './TemperatureInput.jsx';
 import BoilingVerdict from './BoilingVerdict.jsx';
 
-function toCelsius(fahrenheit) {
+const toCelsius = fahrenheit => {
   return ((fahrenheit - 32) * 5) / 9;
-}
+};
 
-function toFahrenheit(celsius) {
+const toFahrenheit = celsius => {
   return (celsius * 9) / 5 + 32;
 }
 
+const tryConvert = ()
 function tryConvert(temperature, convert) {
   const input = parseFloat(temperature);
   if (Number.isNaN(input)) {

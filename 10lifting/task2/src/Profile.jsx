@@ -1,13 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import UserForm from './UserForm.jsx';
 
-const Profile = ({ userData, onChange }) => {
+const Profile = ({ userData, handleChange }) => {
   return (
     <div className="column">
-      <UserForm userData={userData} onChange={onChange} />
+      <UserForm userData={userData} handleChange={handleChange} />
     </div>
   );
 };
 
 export default Profile;
-handleChange;

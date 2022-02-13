@@ -2,16 +2,16 @@ import React, { Component } from 'react';
 import ShoppingCart from './ShoppingCart.jsx';
 import Profile from './Profile.jsx';
 
-class Page extends Component {
+class App extends Component {
   state = {
     userData: {
-      firstName: 'John',
-      lastName: 'Doe',
+      firstName: 'Tom',
+      lastName: 'Form',
     },
   };
 
-  onChange = e => {
-    const { name, value } = e.target;
+  handleChange = event => {
+    const { name, value } = event.target;
     this.setState({
       userData: {
         ...this.state.userData,
@@ -21,17 +21,18 @@ class Page extends Component {
   };
 
   render() {
-    const { firstName, lastName } = this.state.userData;
+    // const { userData } = this.state;
+
     return (
       <div className="page">
-        <h1 className="title">{`Hello, ${firstName} ${lastName}`}</h1>
+        <h1 className="title">{`Hello, ${this.state.userData.firstName} ${this.state.userData.lastName}`}</h1>
         <main className="content">
           <ShoppingCart userName={this.state.userData.firstName} />
-          <Profile userData={this.state.userData} onChange={this.onChange} />
+          <Profile userData={this.state.userData} handleChange={this.handleChange} />
         </main>
       </div>
     );
   }
 }
 
-export default Page;
+export default App;
