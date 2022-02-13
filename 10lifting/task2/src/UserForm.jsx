@@ -1,7 +1,6 @@
 import React from 'react';
 
 const UserForm = ({ userData, handleChange }) => {
-  // class UserForm extends Component {
 
   return (
     <form className="user-form">
