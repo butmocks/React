@@ -5,30 +5,31 @@ import Profile from './Profile.jsx';
 class App extends Component {
   state = {
     userData: {
-      firstName: 'Tom',
-      lastName: 'Form',
+      firstName: "John",
+      lastName: "Doe",
     },
   };
 
   handleChange = event => {
     const { name, value } = event.target;
+    e.preventDefault();
     this.setState({
       userData: {
         ...this.state.userData,
         [name]: value,
       },
     });
-  };
+  }
 
   render() {
-    // const { userData } = this.state;
+    const { userData } = this.state;
 
     return (
       <div className="page">
-        <h1 className="title">{`Hello, ${this.state.userData.firstName} ${this.state.userData.lastName}`}</h1>
+        <h1 className="title">{`Hello, ${userData.firstName} ${userData.lastName}`}</h1>
         <main className="content">
-          <ShoppingCart userName={this.state.userData.firstName} />
-          <Profile userData={this.state.userData} handleChange={this.handleChange} />
+          <ShoppingCart userName={userData} />
+          <Profile userData={userData} handleChange={this.handleChange} />
         </main>
       </div>
     );
