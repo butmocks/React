@@ -10,7 +10,7 @@ const toFahrenheit = celsius => {
   return (celsius * 9) / 5 + 32;
 }
 
-const tryConvert = ()
+
 function tryConvert(temperature, convert) {
   const input = parseFloat(temperature);
   if (Number.isNaN(input)) {

@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { render } from 'react-dom';
 
 const scaleNames = {
-  c: 'Цельсия',
-  f: 'Фаренгейта',
+  c: 'Celsius',
+  f: 'Fahrenheit',
 };
 
-class TemperatureInput extends React.Component {
+class TemperatureInput extends Component {
   handleChange = e => {
     this.props.onTemperatureChange(e.target.value);
   };
@@ -16,7 +16,7 @@ class TemperatureInput extends React.Component {
     const scale = this.props.scale;
     return (
       <fieldset>
-        <legend>Введите градусы по шкале {scaleNames[scale]}:</legend>
+        <legend>Enter temperature in {scaleNames[scale]}:</legend>
         <input value={temperature} onChange={this.handleChange} />
       </fieldset>
     );
