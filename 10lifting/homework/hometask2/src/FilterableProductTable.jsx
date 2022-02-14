@@ -3,23 +3,20 @@ import SearchBar from './SearchBar.jsx';
 import ProductTable from './ProductTable.jsx';
 
 class FilterableProductTable extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      filterText: '',
-      inStockOnly: false,
-    };
-  }
+  state = {
+    filterText: '',
+    inStockOnly: false,
+  };
 
-  handleFilterTextChange = filterText => {
+  handleFilterTextChange = e => {
     this.setState({
-      filterText: filterText,
+      filterText: e.target.value,
     });
   };
 
-  handleInStockChange = inStockOnly => {
+  handleInStockChange = e => {
     this.setState({
-      inStockOnly: inStockOnly,
+      inStockOnly: e.target.checked,
     });
   };
 

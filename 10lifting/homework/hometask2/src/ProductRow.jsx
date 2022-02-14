@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 const ProductRow = ({ product }) => {
   const name = product.stocked ? (

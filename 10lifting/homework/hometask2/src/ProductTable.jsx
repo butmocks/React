@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ProductCategoryRow from './ProductCategoryRow.jsx';
 import ProductRow from './ProductRow.jsx';
 
@@ -6,7 +6,7 @@ const ProductTable = ({ filterText, inStockOnly, products }) => {
   const rows = [];
   let lastCategory = null;
 
-  products.forEach(product => {
+  products.forEach((product => {
     if (product.name.indexOf(filterText) === -1) {
       return;
     }
@@ -18,7 +18,7 @@ const ProductTable = ({ filterText, inStockOnly, products }) => {
     }
     rows.push(<ProductRow product={product} key={product.name} />);
     lastCategory = product.category;
-  });
+  }));
 
   return (
     <table>

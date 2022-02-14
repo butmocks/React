@@ -1,25 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-const SearchBar = ({ onFilterTextChange, onInStockChange, filterText, inStockOnly }) => {
-  const handleFilterTextChange = e => {
-    onFilterTextChange(e.target.value);
-  };
-
-  const handleInStockChange = e => {
-    onInStockChange(e.target.checked);
-  };
-
+const SearchBar = ({ filterText, onFilterTextChange, inStockOnly, onInStockChange }) => {
   return (
     <form>
-      <input
-        type="text"
-        placeholder="Search..."
-        value={filterText}
-        onChange={handleFilterTextChange}
-      />
+      <input type="text" placeholder="Search..." value={filterText} onChange={onFilterTextChange} />
       <p>
-        <input type="checkbox" checked={inStockOnly} onChange={handleInStockChange} /> Only show
-        products in stock
+        <input type="checkbox" checked={inStockOnly} onChange={onInStockChange} />
+        Only show products in stock
       </p>
     </form>
   );
