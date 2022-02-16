@@ -32,11 +32,11 @@ class TasksList extends Component {
   handleTaskStatusChange = (id, done) => {
     const updatedTask = { done: !done };
     console.log(updatedTask, id);
-    updateTask(id, updatedTask).then(() => this.fetchList());
+    updateTask(id, updatedTask).then(() => this.fetchTasks());
   };
 
   handleTaskDelete = id => {
-    deleteTask(id).then(() => this.fetchList());
+    deleteTask(id).then(() => this.fetchTasks());
   };
 
   render() {
