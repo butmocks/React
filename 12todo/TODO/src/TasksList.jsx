@@ -3,7 +3,8 @@ import Task from './Task.jsx';
 import CreateTaskInput from './CreateTaskInput.jsx';
 import { createTask, fetchTasksList, updateTask, deleteTask } from './TasksGateway.jsx';
 
-class TasksList extends Component {
+
+class TasksList extends React.Component {
   state = {
     tasks: [],
   };
@@ -13,11 +14,11 @@ class TasksList extends Component {
   }
 
   fetchTasks = () => {
-    fetchTasksList().then(tasksList =>
+    fetchTasksList().then(tasksList => {
       this.setState({
         tasks: tasksList,
-      }),
-    );
+      });
+    });
   };
 
   onCreate = text => {
@@ -26,12 +27,15 @@ class TasksList extends Component {
       done: false,
     };
 
-    createTask(newTask).then(() => this.fetchTasks());
+    return createTask(newTask).then(() => this.fetchTasks());
   };
 
-  handleTaskStatusChange = (id, done) => {
-    const updatedTask = { done: !done };
-    console.log(updatedTask, id);
+  handleTaskStatusChange = id => {
+    const { done, text } = this.state.tasks.find(task => task.id === id);
+    const updatedTask = {
+      text,
+      done: !done,
+    };
     updateTask(id, updatedTask).then(() => this.fetchTasks());
   };
 
@@ -42,19 +46,19 @@ class TasksList extends Component {
   render() {
     const sortedList = this.state.tasks.slice().sort((a, b) => a.done - b.done);
     return (
-      <div className="todo-list">
+      <main className="todo-list">
         <CreateTaskInput onCreate={this.onCreate} />
         <ul className="list">
           {sortedList.map(task => (
             <Task
               key={task.id}
               {...task}
-              onDelete={this.handleTaskDelete}
               onChange={this.handleTaskStatusChange}
+              onDelete={this.handleTaskDelete}
             />
           ))}
         </ul>
-      </div>
+      </main>
     );
   }
 }
