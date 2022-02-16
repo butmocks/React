@@ -24,11 +24,11 @@ class TasksList extends Component {
     this.setState({ tasks: updatedTasks });
   };
 
-  handleTaskStatusChange = () => {
+  handleTaskStatusChange = id => {
     // 1. find task in the listy
     // 2. toggle done value
     // 3. save updated list
-    const updatedTasks = this.state.task3.map(task => {
+    const updatedTasks = this.state.tasks.map(task => {
       if (task.id === id) {
         return {
           ...task,
@@ -40,6 +40,13 @@ class TasksList extends Component {
     this.setState({ tasks: updatedTasks });
   };
 
+  handleTaskDelete = id => {
+    // 1. filter tasks
+    // 2. update state
+    const updatedTasks = this.state.tasks.filter(task => task.id !== id);
+    this.setState({ tasks: updatedTasks });
+  };
+
   render() {
     const sortedList = this.state.tasks.slice().sort((a, b) => a.done - b.done);
     return (
@@ -47,7 +54,12 @@ class TasksList extends Component {
         <CreateTaskInput onCreate={this.onCreate} />
         <ul className="list">
           {sortedList.map(task => (
-            <Task key={task.id} {...task} onChange={this.handleTaskStatusChange} />
+            <Task
+              key={task.id}
+              {...task}
+              onDelete={this.handleTaskDelete}
+              onChange={this.handleTaskStatusChange}
+            />
           ))}
         </ul>
       </div>
