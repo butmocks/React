@@ -29,18 +29,14 @@ class TasksList extends Component {
     createTask(newTask).then(() => this.fetchTasks());
   };
 
-  handleTaskStatusChange = id => {
-    const { done, text } = this.state.tasks.map(task => task.id === id);
-    const updatedTask = {
-      text,
-      done: !done,
-    };
-
-    updateTask(id, updateTask).then(() => this.fetchTasks());
+  handleTaskStatusChange = (id, done) => {
+    const updatedTask = { done: !done };
+    console.log(updatedTask, id);
+    updateTask(id, updatedTask).then(() => this.fetchList());
   };
 
   handleTaskDelete = id => {
-    deleteTask(id).then(() => this.fetchTasks());
+    deleteTask(id).then(() => this.fetchList());
   };
 
   render() {
