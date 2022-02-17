@@ -12,7 +12,7 @@ const Dimensions = () => {
     setDimensions({ width: innerWidth, height: innerHeight });
     const handleResize = e => {
       const { innerWidth, innerHeight } = e.target;
-      this.setDimensions({ width: innerWidth, height: innerHeight });
+      setDimensions({ width: innerWidth, height: innerHeight });
     };
 
     window.addEventListener('resize', handleResize);
