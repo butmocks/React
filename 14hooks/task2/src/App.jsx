@@ -1,29 +1,30 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Contacts from './Contacts.jsx';
-import Home from './Home.jsx';
-import PageNotFound from './PageNotFound.jsx';
-import Products from './Products.jsx';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 
 const App = () => {
   return (
     <div className="page">
-      <BrowserRouter>
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/products">
-            <Products />
-          </Route>
-          <Route path="/contacts">
-            <Contacts />
-          </Route>
-          <Route path="/*">
-            <PageNotFound />
-          </Route>
-        </Switch>
-      </BrowserRouter>
+      <Router>
+        <div className="page__content">
+          <h1>Users</h1>
+          <ul className="navigation">
+            <li className="navigation__item">
+              <Link to="/users/github">Github</Link>
+            </li>
+            <li className="navigation__item">
+              <Link to="/users/facebook">Facebook</Link>
+            </li>
+          </ul>
+
+          <Switch>
+            <Route path="/users/:userId" component={User} />
+
+            <Route path="/">
+              <span>Select a user please</span>
+            </Route>
+          </Switch>
+        </div>
+      </Router>
     </div>
   );
 };
