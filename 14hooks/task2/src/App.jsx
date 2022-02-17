@@ -22,7 +22,7 @@ const App = () => {
               <User />
               </Route>
 
-            <Route path="/">
+            <Route path="">
               <span>Select a user please</span>
             </Route>
           </Switch>
