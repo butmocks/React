@@ -22,7 +22,7 @@ const {userId} = useParams()
   if (!userData) {
     return null;
   }
-  const { name, location, name } = userData;
+  const { name, location, avatar_url } = userData;
   return (
     <div className="user">
       <img src="{avatar_url}" alt="User Avatar" className="user__avatar" />
