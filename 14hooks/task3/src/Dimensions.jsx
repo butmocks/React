@@ -1,44 +1,28 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 
-class Dimensions extends Component {
-  constructor(props) {
-    super(props);
 
-    this.state = {
-      width: null,
-      height: null,
-    };
-    document.title = `${innerWidth} x ${innerHeight}`;
-  }
+const Dimensions = () => {
+  const [dimentions, setDimensions] = useState({
+    width: null,
+    height: null,
+  });
 
-  componentDidMount() {
-    window.addEventListener('resize', this.onResize);
-
+  useEffect(() => {
     const { innerWidth, innerHeight } = window;
-    this.setDimensions(innerWidth, innerHeight);
-  }
+    setDimensions({ width: innerWidth, height: innerHeight });
+    const handleResize = e => {
+      const { innerWidth, innerHeight } = e.target;
+      this.setDimensions({ width: innerWidth, height: innerHeight });
+    };
 
-  componentWillUnmount() {
-    window.removeEventListener('resize', this.onResize);
-  }
+    window.addEventListener('resize', handleResize);
 
-  onResize = e => {
-    const { innerWidth, innerHeight } = e.target;
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    }
+  }, []);
+  const { width, height } = dimentions;
+  return <div className="dimensions">{`${width}px - ${height}px`}</div>;
+};
 
-    this.setDimensions(innerWidth, innerHeight);
-  };
-
-  setDimensions = (width, height) => {
-    this.setState({
-      width,
-      height,
-    });
-
-    document.title = `${innerWidth} x ${innerHeight}`;
-  };
-
-  render() {
-    return <div className="dimensions">{`${this.state.width}px - ${this.state.height}px`}</div>;
-  }
-}
 export default Dimensions;

@@ -1,16 +1,16 @@
-import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { useState } from 'react-router-dom';
 import Dimensions from './Dimensions.jsx';
 
 const Demo = () => {
+  const [isVisible, setIsVisible] = useState(true);
   return (
     <div>
       <div>
-        <button className="btn" onClick={this.show}>
+        <button className="btn" onClick={() => setIsVisible(true)}>
           Show
         </button>
 
-        <button className="btn" onClick={this.hide}>
+        <button className="btn" onClick={() => setIsVisible(false)}>
           Hide
         </button>
       </div>
