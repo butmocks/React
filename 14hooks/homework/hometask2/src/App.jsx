@@ -1,29 +1,14 @@
-import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Contacts from './Contacts.jsx';
-import Home from './Home.jsx';
-import PageNotFound from './PageNotFound.jsx';
-import Products from './Products.jsx';
+import React, { useState } from 'react';
+import Clock from './Clock.jsx';
 
 const App = () => {
   return (
-    <div className="page">
-      <BrowserRouter>
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/products">
-            <Products />
-          </Route>
-          <Route path="/contacts">
-            <Contacts />
-          </Route>
-          <Route path="/*">
-            <PageNotFound />
-          </Route>
-        </Switch>
-      </BrowserRouter>
+    <div>
+      <div className="time">
+        <Clock location="New York" offset={-5} interval={1000} />
+        <Clock location="Kyiv" offset={2} interval={1000} />
+        <Clock location="London" offset={0} interval={1000} />
+      </div>
     </div>
   );
 };
