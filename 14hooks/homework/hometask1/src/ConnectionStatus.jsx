@@ -1,41 +1,27 @@
 import React, { Component } from 'react';
 
 const ConnectionStatus = () => {
-  
+  const [status, setStatus] = useState('online');
+  useEffect(() => {
+    const setOnlineStatus = () => {
+      setStatus('online');
+    };
+    const setOfflineStatus = () => {
+      setStatus('offline');
+    };
+    window.addEventListener('online', setOnlineStatus);
+    window.addEventListener('offline', setOfflineStatus);
+
+    return () => {
+      window.removeEventListener('online', setOnlineStatus);
+      window.removeEventListener('offline', setOfflineStatus);
+    };
+  }, []);
+
+  if (status === 'online') {
+    return <div className="status">online</div>;
+  }
+  return <div className="status status_offline">offline</div>;
 };
 
-class Status extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      isOnline: props.isOnline,
-    };
-  }
-
-  onlineStatus = () => {
-    this.setState({
-      isOnline: false,
-    });
-  };
-
-  offlineStatus = () => {
-    this.setState({
-      isOnline: true,
-    });
-  };
-
-  render() {
-    return (
-      <div className="status">
-        {this.state.isOnline ? (
-          <Online onClick={this.onlineStatus} />
-        ) : (
-          <Offline onClick={this.offlineStatus} />
-        )}
-      </div>
-    );
-  }
-}
-
-export default Status;
+export default ConnectionStatus;
