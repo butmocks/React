@@ -1,0 +1,41 @@
+import React, { Component } from 'react';
+
+const ConnectionStatus = () => {
+  
+};
+
+class Status extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isOnline: props.isOnline,
+    };
+  }
+
+  onlineStatus = () => {
+    this.setState({
+      isOnline: false,
+    });
+  };
+
+  offlineStatus = () => {
+    this.setState({
+      isOnline: true,
+    });
+  };
+
+  render() {
+    return (
+      <div className="status">
+        {this.state.isOnline ? (
+          <Online onClick={this.onlineStatus} />
+        ) : (
+          <Offline onClick={this.offlineStatus} />
+        )}
+      </div>
+    );
+  }
+}
+
+export default Status;
