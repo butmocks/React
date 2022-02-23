@@ -1,21 +1,24 @@
-import React from "react";
-import { BrowserRouter as Router, Wsitch, Route, Link } from react-router-dom;
-import User from './User.jsx';
+import React from 'react';
+import { Route, Switch, Link } from 'react-router-dom';
+import User from './User';
 
-const Users = ({ match }) => {
-
-  return (
-    <div className="page__content">
+const Users = ({ match }) => (
+  <div className="page__content">
     <h1>Users</h1>
     <ul className="navigation">
       <li className="navigation__item">
-        <a href="/users/github">Github</a>
+        <Link to="/users/github">Github</Link>
       </li>
       <li className="navigation__item">
-        <a href="/users/facebook">Facebook</a>
+        <Link to="/users/facebook">Facebook</Link>
       </li>
     </ul>
-    
-    </div>
-  )
-}
+    <Switch>
+      <Route path={`${match.url}/:userId`} component={User} />
+      <Route path={match.path}>
+        <span>Select a user please</span>
+      </Route>
+    </Switch>
+  </div>
+);
+export default Users;
