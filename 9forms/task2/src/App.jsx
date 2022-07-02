@@ -1,6 +1,6 @@
-import React from 'react';
+// import React from 'react';
 import UserForm from './UserForm.jsx';
-
+import React, { Component } from 'react';
 class App extends Component {
   createUser = userData => {
     console.log(userData);
