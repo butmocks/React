@@ -13,38 +13,18 @@ body {
   align-items: center;
 }
 
+.panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .login {
   background-color: green;
 }
 
 .logout {
   background-color: cornflowerblue;
-}
-
-@-webkit-keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-.spinner {
-  display: inline-block;
-  border: 3px solid #ccc;
-  border-left-color: transparent;
-  -webkit-animation: spin 0.5s infinite linear;
-          animation: spin 0.5s infinite linear;
-  border-radius: 50%;
 }
 
 .btn {
